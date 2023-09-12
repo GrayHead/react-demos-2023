@@ -1,24 +1,21 @@
 import logo from './logo.svg';
 import './App.css';
 import {createRef, useState} from "react";
+import {useForm} from "react-hook-form";
 
 function App() {
-    let login = createRef();
-    let password = createRef();
-    const onSubmit = (e) => {
-        e.preventDefault();
-        console.log(login.current.value)
-        console.log(password.current.value)
-        // create obj & send to api
+    let {register, handleSubmit} = useForm();
+    const onSubmit = (data) => {
+        console.log(data);
 
     }
-
     return (<div>
-        <form onSubmit={onSubmit}>
-            <input type="text" name={'login'} ref={login}/>
-            <input type="text" name={'password'} ref={password}/>
-            <button>log in</button>
 
+
+        <form onSubmit={handleSubmit(onSubmit)}>
+            <input {...register("title", {required: true})}/>
+            <input {...register("body")}/>
+            <input type="submit" value={'save post'}/>
         </form>
 
     </div>);
