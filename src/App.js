@@ -1,19 +1,28 @@
 import './App.css';
-import {useEffect} from "react";
-import {getAllUsers, getUserById} from "./services/user.api.service";
+import {useEffect, useState} from "react";
+import UsersComponent from "./users/UsersComponent";
 
 function App() {
 
+    const [user, setUser] = useState(null);
+    const choseUser = (obj) => {
+        setUser(obj);
 
-    useEffect(() => {
-        getAllUsers().then(value => console.log(value.data));
-
-        getUserById(9).then(value => console.log(value.data))
-    }, []);
+    }
 
     return (
         <div className="App">
 
+
+            <h2>{user?.email}</h2>
+            {
+                user && <h2>{user.email}</h2>
+            }
+            <hr/>
+            <h2>users component start</h2>
+            <UsersComponent choseUser={choseUser}/>
+            <h2>users component end</h2>
+            <hr/>
         </div>
     );
 }
