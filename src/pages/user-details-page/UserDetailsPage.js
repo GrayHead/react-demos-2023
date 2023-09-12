@@ -1,12 +1,13 @@
 import React from 'react';
 import {useLocation} from "react-router-dom";
+import UserDetailsComponent from "../../components/user-details-component/UserDetailsComponent";
 
 const UserDetailsPage = () => {
     const {state} = useLocation();
 
     return (
         <div>
-            {state.name} - {state.email}
+            <UserDetailsComponent item={state}/>
         </div>
     );
 };
