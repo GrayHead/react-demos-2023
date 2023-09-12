@@ -7,6 +7,7 @@ import MainPage from "./pages/main-page/MainPage";
 import ErrorPage from "./pages/error-page/ErrorPage";
 import UsersPage from "./pages/users-page/UsersPage";
 import PostsPage from "./pages/posts-page/PostsPage";
+import UserDetailsPage from "./pages/user-details-page/UserDetailsPage";
 
 const root =
     ReactDOM.createRoot(document.getElementById('root'));
@@ -20,7 +21,9 @@ const routes = createBrowserRouter(
             errorElement: <ErrorPage/>,
             children: [
                 {path: 'users', element: <UsersPage/>},
+                {path: 'users/details', element: <UserDetailsPage/>},
                 {path: 'posts', element: <PostsPage/>},
+
             ]
         },
 

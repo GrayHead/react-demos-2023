@@ -11,7 +11,10 @@ const MainPage = () => {
                 <li><Link to={'posts'}>posts</Link></li>
             </ul>
 
+            <hr/>
+
             <Outlet/>
+            <hr/>
         </div>
     );
 };
