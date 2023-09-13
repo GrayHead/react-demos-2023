@@ -4,9 +4,9 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import MainPage from "./pages/main-page/MainPage";
-import ErrorPage from "./pages/error-page/ErrorPage";
 import UsersPage from "./pages/users-page/UsersPage";
-import PostsPage from "./pages/posts-page/PostsPage";
+import UserPostsPage from "./pages/user-posts/UserPostsPage";
+import {getAllusers, getPostsOfUserById} from "./services/api.service";
 
 const root =
     ReactDOM.createRoot(document.getElementById('root'));
@@ -17,13 +17,22 @@ const routes = createBrowserRouter(
         {
             path: '/',
             element: <MainPage/>,
-            errorElement: <ErrorPage/>,
             children: [
-                {path: 'users', element: <UsersPage/>},
-                {path: 'posts', element: <PostsPage/>},
-            ]
-        },
+                {
+                    path: 'users',
+                    element: <UsersPage/>,
+                    loader: getAllusers,
+                    children: [
+                        {
+                            // /users/100500
+                            path: ':id', element: <UserPostsPage/>,
+                            loader: getPostsOfUserById
+                        }
+                    ]
+                },
 
+            ]
+        }
     ]
 );
 
