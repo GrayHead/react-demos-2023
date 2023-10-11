@@ -11,10 +11,16 @@ let initialState = {
 const userSlice = createSlice({
     name: 'userSlice',
     initialState,
-    reducers: {}
+    reducers: {
+        addUser:(state, action)=>{
+            const user = action.payload.user;
+            state.users.push(user)
+        }
+    }
 });
-const {reducer: userReducer} = userSlice;
+const {reducer: userReducer, actions:{addUser}} = userSlice;
 
 export {
-    userReducer
+    userReducer,
+    addUser
 }
