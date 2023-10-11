@@ -1,7 +1,12 @@
 import {configureStore} from "@reduxjs/toolkit";
 
+import {carReducer, userReducer} from "./slices";
+
 const store = configureStore({
-    reducer: {}
+    reducer: {
+        user: userReducer,
+        car: carReducer
+    }
 });
 
 export {store}
