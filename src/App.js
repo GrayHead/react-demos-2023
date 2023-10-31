@@ -1,18 +1,13 @@
-import {createContext} from "react";
-import {A} from "./components/A";
+import {MyComponent} from "./components/MyComponent";
 
-const Context = createContext(null)
 const App = () => {
     return (
         <div>
-            <Context.Provider value={'Hello'}>
-                <A/>
-            </Context.Provider>
+            <MyComponent>
+                <h1>hello</h1>
+            </MyComponent>
         </div>
     );
 };
 
-export {
-    App,
-    Context
-};
+export {App};
