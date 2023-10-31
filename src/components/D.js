@@ -1,14 +1,12 @@
-import {B} from "./B";
 import {useAppContext} from "../hooks/useAppContext";
 
-const A = () => {
+const D = () => {
     const message = useAppContext()
     return (
         <div>
-            <div>A: {message}</div>
-            <B/>
+            <div>D: {message}</div>
         </div>
     );
 };
 
-export {A};
+export {D};

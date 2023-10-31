@@ -1,10 +1,12 @@
 import {C} from "./C";
+import {useAppContext} from "../hooks/useAppContext";
 
-const B = ({drill}) => {
+const B = () => {
+    const message = useAppContext()
     return (
         <div>
-            b component
-            <C drill={drill}/>
+            <div>B: {message}</div>
+            <C/>
         </div>
     );
 };

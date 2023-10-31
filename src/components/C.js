@@ -1,17 +1,12 @@
-import {MyContext} from "../App";
+import {D} from "./D";
+import {useAppContext} from "../hooks/useAppContext";
 
-const C = ({drill}) => {
+const C = () => {
+    const message = useAppContext()
     return (
         <div>
-            C component
-            <div>{drill}</div>
-            <MyContext.Consumer>
-                {
-                    (value) => {
-                        return <h1>{value}</h1>
-                    }
-                }
-            </MyContext.Consumer>
+            <div>C: {message}</div>
+            <D/>
         </div>
     );
 };
