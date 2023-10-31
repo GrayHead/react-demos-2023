@@ -1,7 +1,8 @@
-import {useAppContext} from "../hooks/useAppContext";
+import {useContext} from "react";
+import {Context} from "../App";
 
 const D = () => {
-    const message = useAppContext()
+    const message = useContext(Context)
     return (
         <div>
             <div>D: {message}</div>
